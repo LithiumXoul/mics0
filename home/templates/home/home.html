@@ -1,0 +1,31 @@
+{% extends 'home/main.html' %}
+
+
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-md">
+
+        <div>
+            <a class = "btn btn-primary" style="float: right;" href="{% url 'new_poem' %}">Create new poem</a>
+        </div>
+        
+        <br>
+        <br>
+        {% for i in posts %}
+            <div class="card card-body" style="margin: 5px;">
+                <div class="container bg-secondary">
+                    <h2 class="text-white" style="padding: 5px;">{{i.title}} <small> by <a class="text-white" style="text-decoration: none;" href="{% url 'writter_profile' i.poster.id%}">{{i.poster}}</a></small></h2> 
+                    <h6 class="text-white">{{i.body | linebreaks}}</h6>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+<h6 class="text-primary">Total number of posts : {{total_posts}}</h6>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'home/main.html' %}
+
+{% block content %}
+
+<div class="card card-body">
+    <div class="container" style="margin: 5px;">
+        <h1>{{writter.name}}</h1>
+        <h6 class="text-muted">has a total of {{total_posts_by_user}} posts</h6>
+    </div>
+</div>
+
+{% for post in posts %}
+            <div class="card card-body" style="margin: 5px;">
+                <div class="container bg-secondary">
+                    <h2 class="text-white" style="padding: 5px;">{{post.title}}</h2>
+                    <h6 class="text-white">{{post.body | linebreaks}}</h6>
+                </div>
+            </div>
+        {% endfor %}
+
+{% endblock %}
